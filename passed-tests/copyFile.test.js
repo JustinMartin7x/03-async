@@ -9,7 +9,7 @@ describe('copy file should copy one file and make a new copy file', () => {
     //     return fsPromise.rm('./nano1.txt')
     // })
 
-    it('should copy a file in the directory', async () => {
+    it.skip('should copy a file in the directory', async () => {
 
         const res = await copyFile('./nano.txt', './nano1.txt')
         console.log(res)
