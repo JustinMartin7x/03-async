@@ -1,14 +1,18 @@
-const fsPromise = require('fs').promises;
-const { promises } = require('fs');
 const fetch = require('node-fetch')
-const URL = 'https://rickandmortyapi.com/api/character?'
+const URL = 'https://rickandmortyapi.com/api/character'
 
 getCharacter = (id) => {
-    fetch(`${URL}/${id}`)
-        .then(({ body }) => {
-            return { name: body.name, status: body.status, species: body.species }
+    return fetch(`${URL}/${id}`)
+        .then(res => res.json())
+        .then(({ name, status, species }) => {
+            return {
+                name,
+                status,
+                species
+            }
         })
 }
 module.exports = {
     getCharacter
 }
+

@@ -1,9 +1,10 @@
 const { getCharacter } = require('./getCharacter.js')
+const fetch = require('node-fetch')
 
 
 
 
-describe('getcharacter', () => {
+describe('getCharacter', () => {
 
 
     it('should return a character when given an id', async () => {
