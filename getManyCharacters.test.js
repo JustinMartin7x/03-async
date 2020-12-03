@@ -1,14 +1,14 @@
-const { getCharacter } = require('./getCharacter.js')
+const { getManyCharacters } = require('./getManyCharacters.js')
 const fetch = require('node-fetch')
 
 jest.mock('node-fetch')
 
 
 
-describe('getCharacter', () => {
+describe('getChar', () => {
 
 
-    it.skip('should return a character when given an id', async () => {
+    it('should return mulitple character when given an id', async () => {
         fetch.mockResolvedValue({
             json: () => Promise.resolve({
                 id: 1,
@@ -20,7 +20,7 @@ describe('getCharacter', () => {
             })
         })
 
-        const res = await getCharacter(1)
+        const res = await getManyCharacters([1, 2])
         expect(res)
             .toEqual({
                 name: "Rick Sanchez",
